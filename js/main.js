@@ -10,27 +10,66 @@ $(window).scroll(function(){
 })
 
 // gioi thieu sach
-let nCount = selector => {
-    $(selector).each(function(){
-        $(this).animate({
-            Counter: $(this).text()
-        },{
-            duration: 4000,
+// let nCount = selector => {
+//     $(selector).each(function(){
+//         $(this).animate({
+//             Counter: $(this).text()
+//         },{
+//             duration: 4000,
+//             easing: "swing",
+
+//             step: function(value){
+//                 $(this).text(Math.ceil(value))
+//             }
+//         })      
+//     })
+// }
+
+
+  window.onload = function () {
+
+    console.log("Hello");
+  
+    $(".count").each(function () {
+  
+      console.log("OK");
+  
+      $(this)
+  
+        .prop("Counter", 0)
+  
+        .animate(
+  
+          {
+  
+            Counter: $(this).text(),
+  
+          },
+  
+          {
+  
+            duration: 3000,
+  
             easing: "swing",
-
-            step: function(value){
-                $(this).text(Math.ceil(value))
-            }
-        })      
-    })
-}
-let position = 0;
-$(window).scroll(function(){
-    let oTop = $('.numbers').offset().top - window.innerHeight
-    if(position == 0 && $(window).scrollTop() >= oTop) {
-        position++;
-        nCount(".rect > h1");
-    }
-})
-
-
+  
+            step: function (now) {
+  
+              $(this).text(Math.ceil(now));
+  
+            },
+  
+          }
+  
+        );
+  
+    });
+  
+  };
+// let position = 0;
+// $(window).scroll(function(){
+//     let oTop = $('.numbers').offset().top - window.innerHeight
+//     if(position == 0 && $(window).scrollTop() >= oTop) {
+//         position++;
+//         nCount(".rect > h1");
+//     }
+// })
